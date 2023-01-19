@@ -33,7 +33,7 @@ const { data, isError, isLoading } = useQuery({
 </script>
 
 <template>
-	<h1 class="text-5xl font-bold">Vue Blog</h1>
+	<h1 class="text-5xl font-bold">Nuxt Blog</h1>
 
 	<p v-if="isLoading">Loading...</p>
 
