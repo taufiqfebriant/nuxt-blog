@@ -40,7 +40,7 @@ const { data, isError, isLoading } = useQuery({
 			<Title>{{ data.title }} | Vue Blog</Title>
 		</Head>
 
-		<h1 class="font-bold text-5xl">{{ data.title }}</h1>
+		<h1 class="text-5xl font-bold">{{ data.title }}</h1>
 		<p class="mt-4">{{ data.body }}</p>
 	</template>
 </template>

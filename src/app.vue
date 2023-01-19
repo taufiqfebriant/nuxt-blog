@@ -1,7 +1,7 @@
 <template>
-	<header class="border-b py-4 sticky top-0">
-		<div class="flex justify-between container mx-auto">
-			<h2 class="font-semibold text-xl">Vue Blog</h2>
+	<header class="sticky top-0 border-b bg-white py-4">
+		<div class="container mx-auto flex justify-between">
+			<h2 class="text-xl font-semibold">Nuxt Blog</h2>
 
 			<nav>
 				<ul>
@@ -13,7 +13,7 @@
 		</div>
 	</header>
 
-	<main class="container mx-auto pt-8 pb-4">
+	<main class="container mx-auto pt-8 pb-4" v-bind="$attrs">
 		<NuxtPage />
 	</main>
 </template>

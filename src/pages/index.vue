@@ -1,17 +1,6 @@
 <script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query';
 
-useHead({
-	title: 'Vue Blog',
-});
-
-type JsonResponse = {
-	posts: Post[];
-	total: number;
-	skip: number;
-	limit: number;
-};
-
 type Post = {
 	id: number;
 	title: string;
@@ -19,6 +8,13 @@ type Post = {
 	userId: number;
 	tags: string[];
 	reactions: number;
+};
+
+type JsonResponse = {
+	posts: Post[];
+	total: number;
+	skip: number;
+	limit: number;
 };
 
 const fetchPosts = async (): Promise<JsonResponse> => {
@@ -37,7 +33,7 @@ const { data, isError, isLoading } = useQuery({
 </script>
 
 <template>
-	<h1 class="font-bold text-5xl">Vue Blog</h1>
+	<h1 class="text-5xl font-bold">Vue Blog</h1>
 
 	<p v-if="isLoading">Loading...</p>
 
@@ -45,14 +41,14 @@ const { data, isError, isLoading } = useQuery({
 
 	<p v-else-if="!data?.posts.length">No posts found.</p>
 
-	<div class="grid grid-cols-4 gap-4 mt-10" v-else>
+	<div v-else class="mt-10 grid grid-cols-4 gap-4">
 		<NuxtLink
-			:to="`/${post.id}`"
 			v-for="post in data.posts"
 			:key="post.id"
-			class="border rounded px-4 py-3"
+			:to="`/${post.id}`"
+			class="rounded border px-4 py-3"
 		>
-			<h2 class="font-semibold text-lg">{{ post.title }}</h2>
+			<h2 class="text-lg font-semibold">{{ post.title }}</h2>
 		</NuxtLink>
 	</div>
 </template>
