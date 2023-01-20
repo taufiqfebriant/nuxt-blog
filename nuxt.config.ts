@@ -23,7 +23,8 @@ export default defineNuxtConfig({
 				},
 			],
 			bodyAttrs: {
-				class: 'bg-white dark:bg-[#18181a] dark:text-white',
+				class:
+					'bg-white dark:bg-[#18181a] dark:text-white transition-all duration-300',
 			},
 		},
 	},
