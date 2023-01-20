@@ -47,6 +47,19 @@ const { data, isError, isLoading } = useQuery({
 
 		<h1 class="text-7xl font-bold">{{ data.title }}</h1>
 
-		<p class="mt-14 text-[1.65rem] text-gray-600">{{ data.body }}</p>
+		<div class="mt-8 flex divide-x divide-gray-600 text-gray-600">
+			<div class="flex items-center gap-x-3 pr-4">
+				<Icon name="material-symbols:add-reaction-outline" size="1.7rem" />
+				<p class="text-[1.4rem]">{{ data.reactions }} reactions</p>
+			</div>
+
+			<div class="flex items-center gap-x-3 pl-4">
+				<p v-for="tag in data.tags" :key="tag" class="text-[1.4rem]">
+					#{{ tag }}
+				</p>
+			</div>
+		</div>
+
+		<p class="mt-12 text-[1.65rem] text-gray-600">{{ data.body }}</p>
 	</div>
 </template>
