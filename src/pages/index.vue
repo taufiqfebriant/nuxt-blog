@@ -35,15 +35,15 @@ const { data, isError, isLoading } = useQuery({
 
 <template>
 	<div class="flex items-center justify-between">
-		<h1 class="text-[4.8rem] font-bold">Nuxt Blog</h1>
+		<h1 class="text-[4.5rem] font-bold">Nuxt Blog</h1>
 
-		<Icon name="logos:nuxt-icon" size="5rem" />
+		<Icon name="logos:nuxt-icon" size="4.2rem" />
 	</div>
 
-	<div v-if="isLoading" class="mt-10 flex justify-center">
+	<div v-if="true" class="mt-10 flex justify-center">
 		<CustomIcon
 			id="spinner"
-			class="h-8 w-8 animate-spin fill-[#050C18] text-[#D4D6DC]"
+			class="h-10 w-10 animate-spin fill-[#050C18] text-[#D4D6DC]"
 		/>
 	</div>
 
