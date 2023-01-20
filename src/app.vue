@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { useDark } from '@vueuse/core';
+import { useDark, useToggle } from '@vueuse/core';
 
 const isDark = useDark();
+const toggleDark = useToggle(isDark);
 </script>
 
 <template>
@@ -10,6 +11,7 @@ const isDark = useDark();
 			<button
 				type="button"
 				class="mb-10 rounded-lg bg-gray-200 p-3 text-gray-500 dark:bg-[#272729] dark:text-white"
+				@click="toggleDark()"
 			>
 				<ClientOnly>
 					<template #placeholder>
