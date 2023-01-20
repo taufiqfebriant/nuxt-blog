@@ -28,21 +28,59 @@ const postQuery = reactive(
 		queryFn: fetchPost,
 	})
 );
+
+interface User {
+	id: number;
+	username: string;
+}
+
+interface Comment {
+	id: number;
+	body: string;
+	postId: number;
+	user: User;
+}
+
+interface Root {
+	comments: Comment[];
+	total: number;
+	skip: number;
+	limit: number;
+}
+
+const fetchComments = async (): Promise<Root> => {
+	const response = await fetch(`https://dummyjson.com/comments/post/${id}`);
+	if (!response.ok) {
+		throw new Error('Network response was not ok');
+	}
+
+	return response.json();
+};
+
+const commentsQuery = reactive(
+	useQuery({
+		queryKey: ['comments', { postId: id }],
+		queryFn: fetchComments,
+	})
+);
 </script>
 
 <template>
-	<div v-if="postQuery.isLoading" class="flex justify-center">
+	<main
+		v-if="postQuery.isLoading || commentsQuery.isLoading"
+		class="flex justify-center"
+	>
 		<CustomIcon
 			id="spinner"
 			class="h-10 w-10 animate-spin fill-[#050C18] text-[#D4D6DC]"
 		/>
-	</div>
+	</main>
 
 	<p v-else-if="postQuery.isError">Something went wrong.</p>
 
 	<p v-else-if="!postQuery.data">No post found.</p>
 
-	<div v-else>
+	<main v-else>
 		<Head>
 			<Title>{{ postQuery.data.title }} | Nuxt Blog</Title>
 		</Head>
@@ -64,5 +102,22 @@ const postQuery = reactive(
 		</div>
 
 		<p class="mt-12 text-[1.65rem] text-gray-600">{{ postQuery.data.body }}</p>
-	</div>
+
+		<hr class="mt-10 border-gray-300" />
+
+		<h2 class="mt-8 text-5xl font-bold">Comments</h2>
+
+		<div
+			v-for="comment in commentsQuery.data?.comments"
+			:key="comment.id"
+			class="mt-6 flex flex-col gap-y-10"
+		>
+			<article>
+				<h3 class="text-[1.3rem] text-gray-500">
+					{{ comment.user.username }}
+				</h3>
+				<p class="text-[1.65rem] text-gray-600">{{ comment.body }}</p>
+			</article>
+		</div>
+	</main>
 </template>
