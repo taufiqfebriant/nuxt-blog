@@ -29,7 +29,12 @@ const { data, isError, isLoading } = useQuery({
 </script>
 
 <template>
-	<p v-if="isLoading">Loading...</p>
+	<div v-if="isLoading" class="flex justify-center">
+		<CustomIcon
+			id="spinner"
+			class="h-8 w-8 animate-spin fill-[#050C18] text-[#D4D6DC]"
+		/>
+	</div>
 
 	<p v-else-if="isError">Something went wrong.</p>
 
