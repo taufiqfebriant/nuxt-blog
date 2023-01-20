@@ -23,6 +23,9 @@ export default defineNuxtConfig({
 					crossorigin: 'anonymous',
 				},
 			],
+			bodyAttrs: {
+				class: 'bg-white dark:bg-[#18181a] dark:text-white',
+			},
 		},
 	},
 	modules: ['nuxt-icon'],

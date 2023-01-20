@@ -37,7 +37,7 @@ const { data, isError, isLoading } = useQuery({
 	<div class="flex items-center justify-between">
 		<h1 class="text-7xl font-bold">Nuxt Blog</h1>
 
-		<Icon name="logos:nuxt-icon" size="4.2rem" />
+		<Icon name="logos:nuxt-icon" size="42px" />
 	</div>
 
 	<div v-if="isLoading" class="mt-10 flex justify-center">
@@ -55,11 +55,15 @@ const { data, isError, isLoading } = useQuery({
 		<NuxtLink v-for="post in data.posts" :key="post.id" :to="`/${post.id}`">
 			<h2 class="text-[2.125rem] font-medium">{{ post.title }}</h2>
 
-			<p class="mt-2 text-[1.6rem] text-gray-600 line-clamp-2">
+			<p
+				class="mt-2 text-[1.6rem] text-gray-600 line-clamp-2 dark:text-gray-300"
+			>
 				{{ post.body }}
 			</p>
 
-			<div class="mt-5 flex divide-x divide-gray-500 text-gray-500">
+			<div
+				class="mt-5 flex divide-x divide-gray-500 text-gray-500 dark:text-gray-400"
+			>
 				<p class="pr-4 text-[1.4rem]">{{ post.reactions }} reactions</p>
 
 				<div class="flex items-center gap-x-3 pl-4">
