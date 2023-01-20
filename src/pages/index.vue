@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useQuery } from '@tanstack/vue-query';
+import CustomIcon from '../components/CustomIcon.vue';
 
 type Post = {
 	id: number;
@@ -35,20 +36,22 @@ const { data, isError, isLoading } = useQuery({
 <template>
 	<h1 class="text-5xl font-bold">Nuxt Blog</h1>
 
-	<p v-if="isLoading">Loading...</p>
+	<div v-if="isLoading" class="mt-10 flex justify-center">
+		<CustomIcon
+			id="spinner"
+			class="h-8 w-8 animate-spin fill-[#050C18] text-[#D4D6DC]"
+		/>
+	</div>
 
 	<p v-else-if="isError">Something went wrong.</p>
 
 	<p v-else-if="!data?.posts.length">No posts found.</p>
 
-	<div v-else class="mt-10 grid grid-cols-4 gap-4">
-		<NuxtLink
-			v-for="post in data.posts"
-			:key="post.id"
-			:to="`/${post.id}`"
-			class="rounded border px-4 py-3"
-		>
-			<h2 class="text-lg font-semibold">{{ post.title }}</h2>
+	<div v-else class="mt-10 flex flex-col gap-y-10">
+		<NuxtLink v-for="post in data.posts" :key="post.id" :to="`/${post.id}`">
+			<h2 class="text-xl font-medium">{{ post.title }}</h2>
+
+			<p class="mt-2 text-gray-600 line-clamp-2">{{ post.body }}</p>
 		</NuxtLink>
 	</div>
 </template>
