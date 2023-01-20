@@ -40,7 +40,7 @@ const { data, isError, isLoading } = useQuery({
 		<Icon name="logos:nuxt-icon" size="4.2rem" />
 	</div>
 
-	<div v-if="true" class="mt-10 flex justify-center">
+	<div v-if="isLoading" class="mt-10 flex justify-center">
 		<CustomIcon
 			id="spinner"
 			class="h-10 w-10 animate-spin fill-[#050C18] text-[#D4D6DC]"
