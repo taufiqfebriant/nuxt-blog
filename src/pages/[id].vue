@@ -45,13 +45,14 @@ const { data, isError, isLoading } = useQuery({
 			<Title>{{ data.title }} | Nuxt Blog</Title>
 		</Head>
 
-		<h1 class="text-7xl font-bold">{{ data.title }}</h1>
+		<NuxtLink to="/" class="text-[1.6rem] font-medium text-gray-600 underline"
+			>Back</NuxtLink
+		>
+
+		<h1 class="mt-8 text-7xl font-bold">{{ data.title }}</h1>
 
 		<div class="mt-8 flex divide-x divide-gray-600 text-gray-600">
-			<div class="flex items-center gap-x-3 pr-4">
-				<Icon name="material-symbols:add-reaction-outline" size="1.7rem" />
-				<p class="text-[1.4rem]">{{ data.reactions }} reactions</p>
-			</div>
+			<p class="pr-4 text-[1.4rem]">{{ data.reactions }} reactions</p>
 
 			<div class="flex items-center gap-x-3 pl-4">
 				<p v-for="tag in data.tags" :key="tag" class="text-[1.4rem]">
