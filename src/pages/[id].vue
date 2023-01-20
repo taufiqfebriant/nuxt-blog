@@ -82,7 +82,7 @@ const commentsQuery = reactive(
 
 	<main v-else>
 		<Head>
-			<Title>{{ postQuery.data.title }} | Nuxt Blog</Title>
+			<Title>{{ postQuery.data.title }}</Title>
 		</Head>
 
 		<NuxtLink

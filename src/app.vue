@@ -3,6 +3,12 @@ import { useDark, useToggle } from '@vueuse/core';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
+
+useHead({
+	titleTemplate: (titleChunk) => {
+		return titleChunk ? `${titleChunk} | Nuxt Blog` : 'Nuxt Blog';
+	},
+});
 </script>
 
 <template>

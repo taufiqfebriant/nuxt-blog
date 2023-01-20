@@ -13,7 +13,6 @@ export default defineNuxtConfig({
 	},
 	app: {
 		head: {
-			title: 'Nuxt Blog',
 			link: [
 				{
 					rel: 'preload',
