@@ -10,14 +10,14 @@ const toggleDark = useToggle(isDark);
 		<div class="flex justify-end">
 			<button
 				type="button"
-				class="mb-10 rounded-lg bg-gray-200 p-3 text-gray-500 dark:bg-[#272729] dark:text-white"
+				class="mb-10 rounded-lg bg-gray-200 p-3 text-black dark:bg-[#272729] dark:text-white"
 				@click="toggleDark()"
 			>
 				<ClientOnly>
 					<template #placeholder>
 						<CustomIcon
 							id="spinner"
-							class="h-8 w-8 animate-spin fill-gray-600 text-gray-300"
+							class="h-8 w-8 animate-spin fill-black text-gray-200 dark:fill-white dark:text-[#272729]"
 						/>
 					</template>
 

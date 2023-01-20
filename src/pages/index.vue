@@ -43,7 +43,7 @@ const { data, isError, isLoading } = useQuery({
 	<div v-if="isLoading" class="mt-10 flex justify-center">
 		<CustomIcon
 			id="spinner"
-			class="h-10 w-10 animate-spin fill-[#050C18] text-[#D4D6DC]"
+			class="h-10 w-10 animate-spin fill-black text-gray-200 dark:fill-white dark:text-[#272729]"
 		/>
 	</div>
 

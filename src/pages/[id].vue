@@ -72,7 +72,7 @@ const commentsQuery = reactive(
 	>
 		<CustomIcon
 			id="spinner"
-			class="h-10 w-10 animate-spin fill-[#050C18] text-[#D4D6DC]"
+			class="h-10 w-10 animate-spin fill-black text-gray-200 dark:fill-white dark:text-[#272729]"
 		/>
 	</main>
 
@@ -85,13 +85,17 @@ const commentsQuery = reactive(
 			<Title>{{ postQuery.data.title }} | Nuxt Blog</Title>
 		</Head>
 
-		<NuxtLink to="/" class="text-[1.6rem] font-medium text-gray-600 underline"
+		<NuxtLink
+			to="/"
+			class="text-[1.6rem] font-medium text-gray-600 underline dark:text-gray-300"
 			>Back</NuxtLink
 		>
 
 		<h1 class="mt-8 text-7xl font-bold">{{ postQuery.data.title }}</h1>
 
-		<div class="mt-8 flex divide-x divide-gray-500 text-gray-500">
+		<div
+			class="mt-8 flex divide-x divide-gray-500 text-gray-500 dark:text-gray-400"
+		>
 			<p class="pr-4 text-[1.4rem]">{{ postQuery.data.reactions }} reactions</p>
 
 			<div class="flex items-center gap-x-3 pl-4">
@@ -101,9 +105,11 @@ const commentsQuery = reactive(
 			</div>
 		</div>
 
-		<p class="mt-12 text-[1.65rem] text-gray-600">{{ postQuery.data.body }}</p>
+		<p class="mt-12 text-[1.65rem] text-gray-600 dark:text-gray-300">
+			{{ postQuery.data.body }}
+		</p>
 
-		<hr class="mt-10 border-gray-300" />
+		<hr class="mt-10 border-gray-300 dark:border-[#353537]" />
 
 		<h2 class="mt-8 text-5xl font-bold">Comments</h2>
 
@@ -113,10 +119,12 @@ const commentsQuery = reactive(
 			class="mt-6 flex flex-col gap-y-10"
 		>
 			<article>
-				<h3 class="text-[1.3rem] text-gray-500">
+				<h3 class="text-[1.3rem] text-gray-500 dark:text-gray-400">
 					{{ comment.user.username }}
 				</h3>
-				<p class="text-[1.65rem] text-gray-600">{{ comment.body }}</p>
+				<p class="text-[1.65rem] text-gray-600 dark:text-gray-300">
+					{{ comment.body }}
+				</p>
 			</article>
 		</div>
 	</main>
