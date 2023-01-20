@@ -32,7 +32,7 @@ const { data, isError, isLoading } = useQuery({
 	<div v-if="isLoading" class="flex justify-center">
 		<CustomIcon
 			id="spinner"
-			class="h-8 w-8 animate-spin fill-[#050C18] text-[#D4D6DC]"
+			class="h-10 w-10 animate-spin fill-[#050C18] text-[#D4D6DC]"
 		/>
 	</div>
 
@@ -40,12 +40,13 @@ const { data, isError, isLoading } = useQuery({
 
 	<p v-else-if="!data">No post found.</p>
 
-	<template v-else>
+	<div v-else>
 		<Head>
-			<Title>{{ data.title }} | Vue Blog</Title>
+			<Title>{{ data.title }} | Nuxt Blog</Title>
 		</Head>
 
-		<h1 class="text-5xl font-bold">{{ data.title }}</h1>
-		<p class="mt-4">{{ data.body }}</p>
-	</template>
+		<h1 class="text-7xl font-bold">{{ data.title }}</h1>
+
+		<p class="mt-14 text-[1.65rem] text-gray-600">{{ data.body }}</p>
+	</div>
 </template>

@@ -35,7 +35,7 @@ const { data, isError, isLoading } = useQuery({
 
 <template>
 	<div class="flex items-center justify-between">
-		<h1 class="text-[4.5rem] font-bold">Nuxt Blog</h1>
+		<h1 class="text-7xl font-bold">Nuxt Blog</h1>
 
 		<Icon name="logos:nuxt-icon" size="4.2rem" />
 	</div>
