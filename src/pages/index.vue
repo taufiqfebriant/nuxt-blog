@@ -34,7 +34,11 @@ const { data, isError, isLoading } = useQuery({
 </script>
 
 <template>
-	<h1 class="text-5xl font-bold">Nuxt Blog</h1>
+	<div class="flex items-center justify-between">
+		<h1 class="inline-block text-5xl font-bold">Nuxt Blog</h1>
+
+		<Icon name="logos:nuxt-icon" size="3rem" />
+	</div>
 
 	<div v-if="isLoading" class="mt-10 flex justify-center">
 		<CustomIcon
