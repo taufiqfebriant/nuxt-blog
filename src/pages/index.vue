@@ -51,22 +51,19 @@ const { data, isError, isLoading } = useQuery({
 
 	<p v-else-if="!data?.posts.length">No posts found.</p>
 
-	<div v-else class="mt-14 flex flex-col gap-y-14">
+	<div v-else class="mt-14 flex flex-col gap-y-16">
 		<NuxtLink v-for="post in data.posts" :key="post.id" :to="`/${post.id}`">
-			<h2 class="text-[2rem] font-semibold">{{ post.title }}</h2>
+			<h2 class="text-[2.125rem] font-medium">{{ post.title }}</h2>
 
-			<p class="mt-2 text-[1.5rem] text-gray-600 line-clamp-2">
+			<p class="mt-2 text-[1.6rem] text-gray-600 line-clamp-2">
 				{{ post.body }}
 			</p>
 
-			<div class="mt-5 flex divide-x divide-gray-600 text-gray-600">
-				<div class="flex items-center gap-x-3 pr-4">
-					<Icon name="material-symbols:add-reaction-outline" size="1.6rem" />
-					<p class="text-[1.3rem]">{{ post.reactions }} reactions</p>
-				</div>
+			<div class="mt-5 flex divide-x divide-gray-500 text-gray-500">
+				<p class="pr-4 text-[1.4rem]">{{ post.reactions }} reactions</p>
 
 				<div class="flex items-center gap-x-3 pl-4">
-					<p v-for="tag in post.tags" :key="tag" class="text-[1.3rem]">
+					<p v-for="tag in post.tags" :key="tag" class="text-[1.4rem]">
 						#{{ tag }}
 					</p>
 				</div>

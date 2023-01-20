@@ -51,7 +51,7 @@ const { data, isError, isLoading } = useQuery({
 
 		<h1 class="mt-8 text-7xl font-bold">{{ data.title }}</h1>
 
-		<div class="mt-8 flex divide-x divide-gray-600 text-gray-600">
+		<div class="mt-8 flex divide-x divide-gray-500 text-gray-500">
 			<p class="pr-4 text-[1.4rem]">{{ data.reactions }} reactions</p>
 
 			<div class="flex items-center gap-x-3 pl-4">
