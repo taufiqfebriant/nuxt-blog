@@ -1,4 +1,5 @@
 const { fontFamily } = require('tailwindcss/defaultTheme'); // eslint-disable-line @typescript-eslint/no-var-requires
+const plugin = require('tailwindcss/plugin'); // eslint-disable-line @typescript-eslint/no-var-requires
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -10,5 +11,14 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('@tailwindcss/line-clamp')],
+	plugins: [
+		require('@tailwindcss/line-clamp'),
+		plugin(function ({ addBase }) {
+			addBase({
+				html: {
+					fontSize: '10px',
+				},
+			});
+		}),
+	],
 };

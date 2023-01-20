@@ -1,5 +1,5 @@
 <template>
-	<div class="mx-auto max-w-2xl pt-14 pb-10">
+	<div class="mx-auto max-w-[65rem] pt-20 pb-14">
 		<NuxtPage />
 	</div>
 </template>
