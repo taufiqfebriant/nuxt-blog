@@ -22,45 +22,47 @@ const fetchPost = async (): Promise<Post> => {
 	return response.json();
 };
 
-const { data, isError, isLoading } = useQuery({
-	queryKey: ['posts', { id }],
-	queryFn: fetchPost,
-});
+const postQuery = reactive(
+	useQuery({
+		queryKey: ['posts', { id }],
+		queryFn: fetchPost,
+	})
+);
 </script>
 
 <template>
-	<div v-if="isLoading" class="flex justify-center">
+	<div v-if="postQuery.isLoading" class="flex justify-center">
 		<CustomIcon
 			id="spinner"
 			class="h-10 w-10 animate-spin fill-[#050C18] text-[#D4D6DC]"
 		/>
 	</div>
 
-	<p v-else-if="isError">Something went wrong.</p>
+	<p v-else-if="postQuery.isError">Something went wrong.</p>
 
-	<p v-else-if="!data">No post found.</p>
+	<p v-else-if="!postQuery.data">No post found.</p>
 
 	<div v-else>
 		<Head>
-			<Title>{{ data.title }} | Nuxt Blog</Title>
+			<Title>{{ postQuery.data.title }} | Nuxt Blog</Title>
 		</Head>
 
 		<NuxtLink to="/" class="text-[1.6rem] font-medium text-gray-600 underline"
 			>Back</NuxtLink
 		>
 
-		<h1 class="mt-8 text-7xl font-bold">{{ data.title }}</h1>
+		<h1 class="mt-8 text-7xl font-bold">{{ postQuery.data.title }}</h1>
 
 		<div class="mt-8 flex divide-x divide-gray-500 text-gray-500">
-			<p class="pr-4 text-[1.4rem]">{{ data.reactions }} reactions</p>
+			<p class="pr-4 text-[1.4rem]">{{ postQuery.data.reactions }} reactions</p>
 
 			<div class="flex items-center gap-x-3 pl-4">
-				<p v-for="tag in data.tags" :key="tag" class="text-[1.4rem]">
+				<p v-for="tag in postQuery.data.tags" :key="tag" class="text-[1.4rem]">
 					#{{ tag }}
 				</p>
 			</div>
 		</div>
 
-		<p class="mt-12 text-[1.65rem] text-gray-600">{{ data.body }}</p>
+		<p class="mt-12 text-[1.65rem] text-gray-600">{{ postQuery.data.body }}</p>
 	</div>
 </template>
